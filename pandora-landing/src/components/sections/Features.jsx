@@ -90,7 +90,7 @@ const Features = () => {
   };
 
   return (
-    <section id="features" className="py-20 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+    <section id="features" className="py-12 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
@@ -101,7 +101,7 @@ const Features = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <FadeIn direction="up" delay={0.2}>
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
               <span className="gradient-text">Fonctionnalités</span>
             </h2>
@@ -130,36 +130,36 @@ const Features = () => {
                 glow
               >
                 {/* Icon */}
-                <div className="text-center mb-6">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <i className={`${feature.icon} text-white text-2xl`}></i>
+                <div className="text-center mb-4">
+                  <div className={`w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                    <i className={`${feature.icon} text-white text-xl`}></i>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{feature.title}</h3>
-                  <p className="text-gray-400 font-medium">{feature.subtitle}</p>
+                  <h3 className="text-xl font-bold text-white mb-1">{feature.title}</h3>
+                  <p className="text-gray-400 font-medium text-sm">{feature.subtitle}</p>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <p className="text-gray-300 mb-4 leading-relaxed text-sm">
                   {feature.description}
                 </p>
 
                 {/* Features List */}
-                <div className="space-y-3 mb-6">
+                <div className="space-y-2 mb-4">
                   {feature.features.map((item, idx) => (
                     <div key={idx} className="flex items-center space-x-3">
                       <div className={`w-2 h-2 bg-gradient-to-r ${feature.color} rounded-full flex-shrink-0`}></div>
-                      <span className="text-gray-300 text-sm">{item}</span>
+                      <span className="text-gray-300 text-xs">{item}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Stats */}
-                <div className="border-t border-white/10 pt-4">
+                <div className="border-t border-white/10 pt-3">
                   <div className="text-center">
-                    <div className={`text-2xl font-bold bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}>
+                    <div className={`text-xl font-bold bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}>
                       {feature.stats.value}
                     </div>
-                    <div className="text-gray-400 text-sm">{feature.stats.label}</div>
+                    <div className="text-gray-400 text-xs">{feature.stats.label}</div>
                   </div>
                 </div>
               </Card>
@@ -169,7 +169,7 @@ const Features = () => {
 
         {/* Bottom CTA */}
         <FadeIn direction="up" delay={0.8}>
-          <div className="text-center mt-16">
+          <div className="text-center mt-8">
             <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 border border-purple-500/30 max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Une Expérience Culturelle Unifiée

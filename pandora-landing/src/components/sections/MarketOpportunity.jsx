@@ -125,7 +125,7 @@ const MarketOpportunity = () => {
   };
 
   return (
-    <section id="market-opportunity" className="py-16 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+    <section id="market-opportunity" className="py-12 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full blur-3xl animate-pulse"></div>
@@ -136,7 +136,7 @@ const MarketOpportunity = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <FadeIn direction="up" delay={0.2}>
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
@@ -156,9 +156,9 @@ const MarketOpportunity = () => {
           </div>
         </FadeIn>
 
-        {/* Market Data */}
-        <FadeIn direction="up" delay={0.4}>
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+                 {/* Market Data */}
+         <FadeIn direction="up" delay={0.4}>
+           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {marketData.map((data, index) => (
               <motion.div
                 key={data.id}
@@ -166,30 +166,30 @@ const MarketOpportunity = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm"
+                className="text-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"
               >
-                <div className={`w-12 h-12 bg-gradient-to-r ${data.color} rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                  <i className={`${data.icon} text-white text-xl`}></i>
-                </div>
-                <h3 className="text-white font-bold text-lg mb-2">{data.title}</h3>
-                <div className="text-3xl font-black gradient-text mb-1">{data.value}</div>
-                <div className="text-gray-400 text-sm mb-2">{data.label}</div>
-                <div className="text-green-400 font-bold text-lg">{data.growth}</div>
-                <div className="text-gray-500 text-xs">{data.period}</div>
-                <p className="text-gray-300 text-sm mt-3">{data.description}</p>
+                                 <div className={`w-10 h-10 bg-gradient-to-r ${data.color} rounded-lg flex items-center justify-center mx-auto mb-3`}>
+                   <i className={`${data.icon} text-white text-lg`}></i>
+                 </div>
+                 <h3 className="text-white font-bold text-base mb-2">{data.title}</h3>
+                 <div className="text-2xl font-black gradient-text mb-1">{data.value}</div>
+                 <div className="text-gray-400 text-xs mb-2">{data.label}</div>
+                 <div className="text-green-400 font-bold text-base">{data.growth}</div>
+                 <div className="text-gray-500 text-xs">{data.period}</div>
+                 <p className="text-gray-300 text-xs mt-2">{data.description}</p>
               </motion.div>
             ))}
           </div>
         </FadeIn>
 
-        {/* Opportunities Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto mb-12"
-        >
+                 {/* Opportunities Grid */}
+         <motion.div
+           variants={containerVariants}
+           initial="hidden"
+           whileInView="visible"
+           viewport={{ once: true, amount: 0.3 }}
+           className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto mb-8"
+         >
           {opportunities.map((opportunity, index) => (
             <motion.div
               key={opportunity.id}
@@ -200,19 +200,19 @@ const MarketOpportunity = () => {
                 className="border-red-500/30 hover:border-red-500/50 h-full transform hover:scale-105 transition-all duration-500"
                 glow
               >
-                <div className="flex items-start space-x-4 mb-4">
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                    className={`w-12 h-12 bg-gradient-to-r ${opportunity.color} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0`}
-                  >
-                    <i className={`${opportunity.icon} text-white text-xl`}></i>
-                  </motion.div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{opportunity.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">{opportunity.description}</p>
-                  </div>
-                </div>
+                                 <div className="flex items-start space-x-3 mb-3">
+                   <motion.div
+                     whileHover={{ rotate: 360 }}
+                     transition={{ duration: 0.6 }}
+                     className={`w-10 h-10 bg-gradient-to-r ${opportunity.color} rounded-lg flex items-center justify-center shadow-lg flex-shrink-0`}
+                   >
+                     <i className={`${opportunity.icon} text-white text-lg`}></i>
+                   </motion.div>
+                   <div>
+                     <h3 className="text-lg font-bold text-white mb-1">{opportunity.title}</h3>
+                     <p className="text-gray-300 leading-relaxed text-sm">{opportunity.description}</p>
+                   </div>
+                 </div>
                 <div className="bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-lg p-3 border border-red-500/30">
                   <p className="text-red-400 font-semibold text-sm">
                     <i className="fas fa-lightbulb mr-2"></i>
@@ -224,9 +224,9 @@ const MarketOpportunity = () => {
           ))}
         </motion.div>
 
-        {/* Competitive Advantages */}
-        <FadeIn direction="up" delay={0.6}>
-          <div className="text-center mb-8">
+                 {/* Competitive Advantages */}
+         <FadeIn direction="up" delay={0.6}>
+           <div className="text-center mb-6">
             <h3 className="text-3xl font-bold text-white mb-4">Nos Avantages Concurrentiels</h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
               Pandora se distingue par des fonctionnalités uniques qui répondent aux vrais besoins du marché
@@ -234,7 +234,7 @@ const MarketOpportunity = () => {
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {competitiveAdvantages.map((advantage, index) => (
             <motion.div
               key={index}
@@ -242,14 +242,14 @@ const MarketOpportunity = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ scale: 1.05 }}
-              className="text-center p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"
+              className="text-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <i className={`${advantage.icon} text-white text-xl`}></i>
-              </div>
-              <h4 className="text-white font-bold text-lg mb-2">{advantage.title}</h4>
-              <p className="text-gray-300 text-sm mb-3">{advantage.description}</p>
-              <div className="text-2xl font-black gradient-text">{advantage.metric}</div>
+                             <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                 <i className={`${advantage.icon} text-white text-lg`}></i>
+               </div>
+               <h4 className="text-white font-bold text-base mb-2">{advantage.title}</h4>
+               <p className="text-gray-300 text-xs mb-3">{advantage.description}</p>
+               <div className="text-xl font-black gradient-text">{advantage.metric}</div>
             </motion.div>
           ))}
         </div>

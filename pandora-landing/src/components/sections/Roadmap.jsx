@@ -146,7 +146,7 @@ const Roadmap = () => {
   };
 
   return (
-    <section id="roadmap" className="py-16 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden">
+    <section id="roadmap" className="py-12 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full blur-3xl animate-pulse"></div>
@@ -157,7 +157,7 @@ const Roadmap = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <FadeIn direction="up" delay={0.2}>
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
@@ -189,7 +189,7 @@ const Roadmap = () => {
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-500 to-pink-500 h-full hidden lg:block"></div>
 
           {/* Phases */}
-          <div className="space-y-12">
+                     <div className="space-y-8">
             {phases.map((phase, index) => (
               <motion.div
                 key={phase.id}
@@ -204,84 +204,84 @@ const Roadmap = () => {
                 {/* Phase Card */}
                 <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'}`}>
                   <Card className="border-purple-500/30 hover:border-purple-500/50 transform hover:scale-105 transition-all duration-500" glow>
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex items-center space-x-4">
-                        <motion.div
-                          whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.6 }}
-                          className={`w-12 h-12 bg-gradient-to-r ${phase.statusColor} rounded-xl flex items-center justify-center shadow-lg`}
-                        >
-                          <i className={`${phase.icon} text-white text-xl`}></i>
-                        </motion.div>
-                        <div>
-                          <h3 className="text-xl font-bold text-white mb-1">{phase.title}</h3>
-                          <p className="text-gray-400 text-sm">{phase.period}</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className={`px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r ${phase.statusColor} text-white`}>
-                          {phase.status}
-                        </div>
-                      </div>
-                    </div>
+                                         {/* Header */}
+                     <div className="flex items-start justify-between mb-4">
+                       <div className="flex items-center space-x-3">
+                         <motion.div
+                           whileHover={{ rotate: 360 }}
+                           transition={{ duration: 0.6 }}
+                           className={`w-10 h-10 bg-gradient-to-r ${phase.statusColor} rounded-lg flex items-center justify-center shadow-lg`}
+                         >
+                           <i className={`${phase.icon} text-white text-lg`}></i>
+                         </motion.div>
+                         <div>
+                           <h3 className="text-lg font-bold text-white mb-1">{phase.title}</h3>
+                           <p className="text-gray-400 text-xs">{phase.period}</p>
+                         </div>
+                       </div>
+                       <div className="text-right">
+                         <div className={`px-2 py-1 rounded-full text-xs font-bold bg-gradient-to-r ${phase.statusColor} text-white`}>
+                           {phase.status}
+                         </div>
+                       </div>
+                     </div>
 
-                    {/* Description */}
-                    <p className="text-gray-300 mb-6 leading-relaxed">
-                      {phase.description}
-                    </p>
+                                         {/* Description */}
+                     <p className="text-gray-300 mb-4 leading-relaxed text-sm">
+                       {phase.description}
+                     </p>
 
-                    {/* Features */}
-                    <div className="mb-6">
-                      <h4 className="text-white font-semibold mb-3">Fonctionnalités principales :</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {phase.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center space-x-2">
-                            <div className={`w-2 h-2 bg-gradient-to-r ${phase.statusColor} rounded-full flex-shrink-0`}></div>
-                            <span className="text-gray-300 text-sm">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                     {/* Features */}
+                     <div className="mb-4">
+                       <h4 className="text-white font-semibold mb-2 text-sm">Fonctionnalités principales :</h4>
+                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                         {phase.features.map((feature, idx) => (
+                           <div key={idx} className="flex items-center space-x-2">
+                             <div className={`w-2 h-2 bg-gradient-to-r ${phase.statusColor} rounded-full flex-shrink-0`}></div>
+                             <span className="text-gray-300 text-xs">{feature}</span>
+                           </div>
+                         ))}
+                       </div>
+                     </div>
 
-                    {/* Milestones */}
-                    <div className="mb-6">
-                      <h4 className="text-white font-semibold mb-3">Milestones :</h4>
-                      <div className="space-y-2">
-                        {phase.milestones.map((milestone, idx) => (
-                          <div key={idx} className="flex items-center space-x-3">
-                            <div className={`w-4 h-4 rounded-full flex items-center justify-center ${
-                              milestone.completed 
-                                ? 'bg-green-500' 
-                                : 'bg-gray-600 border border-gray-500'
-                            }`}>
-                              {milestone.completed && (
-                                <i className="fas fa-check text-white text-xs"></i>
-                              )}
-                            </div>
-                            <span className={`text-sm ${milestone.completed ? 'text-green-400' : 'text-gray-400'}`}>
-                              {milestone.text}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                                         {/* Milestones */}
+                     <div className="mb-4">
+                       <h4 className="text-white font-semibold mb-2 text-sm">Milestones :</h4>
+                       <div className="space-y-1">
+                         {phase.milestones.map((milestone, idx) => (
+                           <div key={idx} className="flex items-center space-x-3">
+                             <div className={`w-3 h-3 rounded-full flex items-center justify-center ${
+                               milestone.completed 
+                                 ? 'bg-green-500' 
+                                 : 'bg-gray-600 border border-gray-500'
+                             }`}>
+                               {milestone.completed && (
+                                 <i className="fas fa-check text-white text-xs"></i>
+                               )}
+                             </div>
+                             <span className={`text-xs ${milestone.completed ? 'text-green-400' : 'text-gray-400'}`}>
+                               {milestone.text}
+                             </span>
+                           </div>
+                         ))}
+                       </div>
+                     </div>
 
-                    {/* Metrics */}
-                    <div className="grid grid-cols-3 gap-4 p-4 bg-white/5 rounded-lg border border-white/10">
-                      <div className="text-center">
-                        <div className="text-xl font-bold gradient-text">{phase.metrics.users}</div>
-                        <div className="text-gray-400 text-xs">Utilisateurs</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-xl font-bold gradient-text">{phase.metrics.content}</div>
-                        <div className="text-gray-400 text-xs">Contenus</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-xl font-bold gradient-text">{phase.metrics.revenue}</div>
-                        <div className="text-gray-400 text-xs">Revenus</div>
-                      </div>
-                    </div>
+                                         {/* Metrics */}
+                     <div className="grid grid-cols-3 gap-3 p-3 bg-white/5 rounded-lg border border-white/10">
+                       <div className="text-center">
+                         <div className="text-lg font-bold gradient-text">{phase.metrics.users}</div>
+                         <div className="text-gray-400 text-xs">Utilisateurs</div>
+                       </div>
+                       <div className="text-center">
+                         <div className="text-lg font-bold gradient-text">{phase.metrics.content}</div>
+                         <div className="text-gray-400 text-xs">Contenus</div>
+                       </div>
+                       <div className="text-center">
+                         <div className="text-lg font-bold gradient-text">{phase.metrics.revenue}</div>
+                         <div className="text-gray-400 text-xs">Revenus</div>
+                       </div>
+                     </div>
                   </Card>
                 </div>
               </motion.div>
@@ -289,9 +289,9 @@ const Roadmap = () => {
           </div>
         </motion.div>
 
-        {/* Bottom CTA */}
-        <FadeIn direction="up" delay={0.8}>
-          <div className="text-center mt-16">
+                 {/* Bottom CTA */}
+         <FadeIn direction="up" delay={0.8}>
+           <div className="text-center mt-8">
             <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 border border-purple-500/30 max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Rejoignez l'Aventure Pandora

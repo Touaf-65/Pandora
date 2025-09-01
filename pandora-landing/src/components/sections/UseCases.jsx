@@ -110,7 +110,7 @@ const UseCases = () => {
   };
 
   return (
-    <section id="use-cases" className="py-16 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden">
+    <section id="use-cases" className="py-12 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
@@ -121,7 +121,7 @@ const UseCases = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <FadeIn direction="up" delay={0.2}>
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
@@ -159,70 +159,70 @@ const UseCases = () => {
                 className={`${useCase.borderColor} hover:${useCase.borderColor.replace('/30', '/50')} h-full transform hover:scale-105 transition-all duration-500`}
                 glow
               >
-                {/* Header */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    <motion.div
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                      className={`w-12 h-12 bg-gradient-to-r ${useCase.color} rounded-xl flex items-center justify-center shadow-lg`}
-                    >
-                      <i className={`${useCase.icon} text-white text-xl`}></i>
-                    </motion.div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-1">{useCase.title}</h3>
-                      <p className="text-gray-400 text-sm">{useCase.subtitle}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className={`text-2xl font-bold bg-gradient-to-r ${useCase.color} bg-clip-text text-transparent`}>
-                      {useCase.stats.value}
-                    </div>
-                    <div className="text-gray-400 text-xs">{useCase.stats.label}</div>
-                  </div>
-                </div>
+                                 {/* Header */}
+                 <div className="flex items-start justify-between mb-4">
+                   <div className="flex items-center space-x-3">
+                     <motion.div
+                       whileHover={{ rotate: 360 }}
+                       transition={{ duration: 0.6 }}
+                       className={`w-10 h-10 bg-gradient-to-r ${useCase.color} rounded-lg flex items-center justify-center shadow-lg`}
+                     >
+                       <i className={`${useCase.icon} text-white text-lg`}></i>
+                     </motion.div>
+                     <div>
+                       <h3 className="text-lg font-bold text-white mb-1">{useCase.title}</h3>
+                       <p className="text-gray-400 text-xs">{useCase.subtitle}</p>
+                     </div>
+                   </div>
+                   <div className="text-right">
+                     <div className={`text-xl font-bold bg-gradient-to-r ${useCase.color} bg-clip-text text-transparent`}>
+                       {useCase.stats.value}
+                     </div>
+                     <div className="text-gray-400 text-xs">{useCase.stats.label}</div>
+                   </div>
+                 </div>
 
-                {/* Scenario */}
-                <div className="mb-4 p-3 bg-white/5 rounded-lg border border-white/10">
-                  <p className="text-gray-300 text-sm italic">
-                    <i className="fas fa-play-circle mr-2 text-purple-400"></i>
-                    {useCase.scenario}
-                  </p>
-                </div>
+                                 {/* Scenario */}
+                 <div className="mb-3 p-2 bg-white/5 rounded-lg border border-white/10">
+                   <p className="text-gray-300 text-xs italic">
+                     <i className="fas fa-play-circle mr-2 text-purple-400"></i>
+                     {useCase.scenario}
+                   </p>
+                 </div>
 
-                {/* Description */}
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  {useCase.description}
-                </p>
+                 {/* Description */}
+                 <p className="text-gray-300 mb-4 leading-relaxed text-sm">
+                   {useCase.description}
+                 </p>
 
-                {/* Features */}
-                <div className="space-y-2 mb-6">
-                  <h4 className="text-white font-semibold mb-3">Fonctionnalités utilisées :</h4>
-                  {useCase.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-3">
-                      <div className={`w-2 h-2 bg-gradient-to-r ${useCase.color} rounded-full flex-shrink-0`}></div>
-                      <span className="text-gray-300 text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+                 {/* Features */}
+                 <div className="space-y-1 mb-4">
+                   <h4 className="text-white font-semibold mb-2 text-sm">Fonctionnalités utilisées :</h4>
+                   {useCase.features.map((feature, idx) => (
+                     <div key={idx} className="flex items-center space-x-3">
+                       <div className={`w-2 h-2 bg-gradient-to-r ${useCase.color} rounded-full flex-shrink-0`}></div>
+                       <span className="text-gray-300 text-xs">{feature}</span>
+                     </div>
+                   ))}
+                 </div>
 
-                {/* CTA */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-full py-3 px-4 bg-gradient-to-r ${useCase.color} bg-opacity-20 text-white rounded-xl border border-opacity-30 hover:bg-opacity-30 transition-all duration-300 font-medium`}
-                >
-                  <i className="fas fa-arrow-right mr-2"></i>
-                  Voir le cas complet
-                </motion.button>
+                                 {/* CTA */}
+                 <motion.button
+                   whileHover={{ scale: 1.05 }}
+                   whileTap={{ scale: 0.95 }}
+                   className={`w-full py-2 px-4 bg-gradient-to-r ${useCase.color} bg-opacity-20 text-white rounded-lg border border-opacity-30 hover:bg-opacity-30 transition-all duration-300 font-medium text-sm`}
+                 >
+                   <i className="fas fa-arrow-right mr-2"></i>
+                   Voir le cas complet
+                 </motion.button>
               </Card>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Bottom CTA */}
-        <FadeIn direction="up" delay={0.8}>
-          <div className="text-center mt-12">
+                 {/* Bottom CTA */}
+         <FadeIn direction="up" delay={0.8}>
+           <div className="text-center mt-8">
             <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 border border-purple-500/30 max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Votre Cas d'Usage Existe-t-il ?
