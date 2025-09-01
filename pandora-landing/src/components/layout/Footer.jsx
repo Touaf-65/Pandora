@@ -10,37 +10,13 @@ const Footer = () => {
     }
   };
 
-  const footerSections = [
-    {
-      title: 'Pandora',
-      links: [
-        { label: 'À propos', action: () => scrollToSection('hero') },
-        { label: 'Fonctionnalités', action: () => scrollToSection('features') },
-        { label: 'Cas d\'Usage', action: () => scrollToSection('use-cases') },
-        { label: 'Roadmap', action: () => scrollToSection('roadmap') },
-        { label: 'Équipe', action: () => scrollToSection('team') }
-      ]
-    },
-    {
-      title: 'Ressources',
-      links: [
-        { label: 'Documentation', action: () => window.open('#', '_blank') },
-        { label: 'API Developer', action: () => window.open('#', '_blank') },
-        { label: 'Blog', action: () => window.open('#', '_blank') },
-        { label: 'Support', action: () => window.open('#', '_blank') },
-        { label: 'FAQ', action: () => window.open('#', '_blank') }
-      ]
-    },
-    {
-      title: 'Légal',
-      links: [
-        { label: 'Conditions d\'utilisation', action: () => window.open('#', '_blank') },
-        { label: 'Politique de confidentialité', action: () => window.open('#', '_blank') },
-        { label: 'RGPD', action: () => window.open('#', '_blank') },
-        { label: 'Cookies', action: () => window.open('#', '_blank') },
-        { label: 'Mentions légales', action: () => window.open('#', '_blank') }
-      ]
-    }
+  const footerLinks = [
+    { label: 'À propos', action: () => scrollToSection('hero') },
+    { label: 'Fonctionnalités', action: () => scrollToSection('features') },
+    { label: 'Cas d\'Usage', action: () => scrollToSection('use-cases') },
+    { label: 'Roadmap', action: () => scrollToSection('roadmap') },
+    { label: 'Équipe', action: () => scrollToSection('team') },
+    { label: 'Early Access', action: () => scrollToSection('early-access') }
   ];
 
   const socialLinks = [
@@ -67,104 +43,97 @@ const Footer = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+        <div className="py-6">
+          {/* First Row: Brand & Navigation */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-6">
             {/* Brand Section */}
             <FadeIn direction="up" delay={0.2}>
-              <div className="lg:col-span-1">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-                    <i className="fas fa-music text-white text-lg"></i>
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                    <i className="fas fa-music text-white text-sm"></i>
                   </div>
                   <span className="text-2xl font-bold gradient-text">PANDORA</span>
                 </div>
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  La plateforme universelle qui révolutionne la création culturelle en unifiant littérature, 
-                  musique et arts visuels dans un écosystème collaboratif innovant.
-                </p>
                 
                 {/* Social Links */}
-                <div className="flex space-x-4 mb-6">
+                <div className="flex space-x-2">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={index}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition-all duration-300"
+                      className="w-7 h-7 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition-all duration-300"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       title={social.label}
                     >
-                      <i className={`${social.icon} text-lg`}></i>
+                      <i className={`${social.icon} text-sm`}></i>
                     </motion.a>
-                  ))}
-                </div>
-
-                {/* Contact Info */}
-                <div className="space-y-3">
-                  {contactInfo.map((contact, index) => (
-                    <motion.button
-                      key={index}
-                      onClick={contact.action}
-                      className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-300 w-full text-left"
-                      whileHover={{ x: 4 }}
-                    >
-                      <i className={`${contact.icon} text-purple-400 w-4`}></i>
-                      <span className="text-sm">{contact.label}</span>
-                    </motion.button>
                   ))}
                 </div>
               </div>
             </FadeIn>
 
-            {/* Footer Sections */}
-            {footerSections.map((section, sectionIndex) => (
-              <FadeIn key={section.title} direction="up" delay={0.2 + sectionIndex * 0.1}>
-                <div>
-                  <h3 className="text-white font-bold text-lg mb-6">{section.title}</h3>
-                  <ul className="space-y-3">
-                    {section.links.map((link, linkIndex) => (
-                      <li key={linkIndex}>
-                        <motion.button
-                          onClick={link.action}
-                          className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
-                          whileHover={{ x: 4 }}
-                        >
-                          {link.label}
-                        </motion.button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeIn>
-            ))}
+            {/* Navigation Links */}
+            <FadeIn direction="up" delay={0.3}>
+              <div className="flex flex-wrap justify-center gap-6">
+                {footerLinks.map((link, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={link.action}
+                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base font-medium"
+                    whileHover={{ scale: 1.05, y: -1 }}
+                  >
+                    {link.label}
+                  </motion.button>
+                ))}
+              </div>
+            </FadeIn>
           </div>
+
+          {/* Second Row: Contact Info */}
+          <FadeIn direction="up" delay={0.4}>
+            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6">
+              {contactInfo.map((contact, index) => (
+                <motion.button
+                  key={index}
+                  onClick={contact.action}
+                  className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <i className={`${contact.icon} text-purple-400 text-sm`}></i>
+                  <span className="text-sm">{contact.label}</span>
+                </motion.button>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
 
           {/* Newsletter Section */}
           <FadeIn direction="up" delay={0.6}>
-            <div className="mt-12 pt-8 border-t border-white/10">
-              <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 border border-purple-500/30">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-4">
+            <div className="mt-6 pt-4 border-t border-white/10">
+              <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-lg p-4 border border-purple-500/30">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="text-center sm:text-left">
+                    <h3 className="text-xl font-bold text-white mb-2">
                       Restez Connecté avec Pandora
                     </h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      Recevez les dernières actualités, les nouvelles fonctionnalités et les opportunités 
-                      exclusives directement dans votre boîte mail.
+                    <p className="text-gray-300 text-sm">
+                      Recevez les dernières actualités et opportunités exclusives.
                     </p>
                   </div>
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex gap-3">
                     <input
                       type="email"
-                      placeholder="Votre adresse email"
-                      className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300"
+                      placeholder="Votre email"
+                      className="w-48 px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300 text-sm"
                     />
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all duration-300"
+                      className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 text-sm"
                     >
                       S'abonner
                     </motion.button>
@@ -173,25 +142,24 @@ const Footer = () => {
               </div>
             </div>
           </FadeIn>
-        </div>
 
         {/* Bottom Footer */}
         <FadeIn direction="up" delay={0.8}>
-          <div className="py-6 border-t border-white/10">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="flex items-center space-x-6 text-sm text-gray-400">
+          <div className="py-3 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
+              <div className="flex items-center space-x-3 text-sm text-gray-400">
                 <span>© 2024 Pandora. Tous droits réservés.</span>
                 <span>•</span>
                 <span>Made with ❤️ in Africa & Europe</span>
               </div>
               
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-3">
                 <motion.button
                   onClick={() => scrollToSection('early-access')}
                   className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
                   whileHover={{ scale: 1.05 }}
                 >
-                  Rejoindre l'Early Access
+                  Early Access
                 </motion.button>
                 <span className="text-gray-600">•</span>
                 <motion.button
@@ -199,7 +167,7 @@ const Footer = () => {
                   className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
                   whileHover={{ scale: 1.05 }}
                 >
-                  Télécharger l'App
+                  Télécharger
                 </motion.button>
               </div>
             </div>
