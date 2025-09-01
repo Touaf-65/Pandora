@@ -1,13 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Thème clair */
+  .light-theme {
+    background-color: #ffffff;
+    color: #1e293b;
+  }
+
+  .light-theme .bg-slate-900 {
+    background-color: #ffffff;
+  }
+
+  .light-theme .bg-slate-800 {
+    background-color: #f8fafc;
+  }
+
+  .light-theme .text-white {
+    color: #1e293b;
+  }
+
+  .light-theme .text-gray-300 {
+    color: #64748b;
+  }
+
+  .light-theme .text-gray-400 {
+    color: #94a3b8;
+  }
+
+  .light-theme .bg-white\/5 {
+    background-color: rgba(30, 41, 59, 0.05);
+  }
+
+  .light-theme .bg-white\/10 {
+    background-color: rgba(30, 41, 59, 0.1);
+  }
+
+  .light-theme .border-white\/10 {
+    border-color: rgba(30, 41, 59, 0.1);
+  }
+
+  .light-theme .border-white\/20 {
+    border-color: rgba(30, 41, 59, 0.2);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm;
+  }
+
+  .light-theme .btn-secondary {
+    @apply bg-slate-800/10 text-slate-800 border border-slate-800/20 hover:bg-slate-800/20;
+  }
+
+  .btn-outline {
+    @apply border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white;
+  }
+
+  .card {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-purple-500/30 transition-all duration-300;
+  }
+
+  .light-theme .card {
+    @apply bg-slate-800/5 border-slate-800/10 hover:border-purple-500/30;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .light-theme .glass-effect {
+    @apply bg-slate-800/5 border-slate-800/10;
+  }
+
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.light-theme ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #8b5cf6, #ec4899);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #7c3aed, #db2777);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: white;
+}
+
+.light-theme ::selection {
+  background: rgba(139, 92, 246, 0.2);
+  color: #1e293b;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }

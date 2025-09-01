@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React from 'react';
+import Layout from './components/layout/Layout';
+import Hero from './components/sections/Hero';
+import ProblemSolution from './components/sections/ProblemSolution';
+import Features from './components/sections/Features';
+import Team from './components/sections/Team';
+import EarlyAccess from './components/sections/EarlyAccess';
+import UseCases from './components/sections/UseCases';
+import MarketOpportunity from './components/sections/MarketOpportunity';
+import Roadmap from './components/sections/Roadmap';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="problem-solution">
+        <ProblemSolution />
+      </div>
+      <div id="features">
+        <Features />
+      </div>
+      <div id="use-cases">
+        <UseCases />
+      </div>
+      <div id="market-opportunity">
+        <MarketOpportunity />
+      </div>
+      <div id="roadmap">
+        <Roadmap />
+      </div>
+      <div id="team">
+        <Team />
+      </div>
+      <div id="early-access">
+        <EarlyAccess />
+      </div>
+      {/* Autres sections à venir */}
+    </Layout>
   );
 }
 
