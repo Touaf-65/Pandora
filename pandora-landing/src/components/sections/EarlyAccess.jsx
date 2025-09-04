@@ -18,18 +18,18 @@ const EarlyAccess = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const domains = [
-    { value: 'literature', label: '📚 Littérature', icon: 'fas fa-book-open' },
-    { value: 'music', label: '🎵 Musique', icon: 'fas fa-music' },
-    { value: 'art', label: '🎨 Art Visuel', icon: 'fas fa-palette' },
-    { value: 'all', label: '🌟 Tous les domaines', icon: 'fas fa-star' }
+    { value: 'Litterature', label: '📚 Littérature', icon: 'fas fa-book-open' },
+    { value: 'Musique', label: '🎵 Musique', icon: 'fas fa-music' },
+    { value: 'Art Visuel', label: '🎨 Art Visuel', icon: 'fas fa-palette' },
+    { value: 'Tous les domaines', label: '🌟 Tous les domaines', icon: 'fas fa-star' }
   ];
 
   const userTypes = [
-    { value: 'creator', label: 'Créateur/Artiste', icon: 'fas fa-paint-brush' },
-    { value: 'consumer', label: 'Consommateur de contenu', icon: 'fas fa-user' },
-    { value: 'investor', label: 'Investisseur', icon: 'fas fa-chart-line' },
-    { value: 'developer', label: 'Développeur', icon: 'fas fa-code' },
-    { value: 'other', label: 'Autre', icon: 'fas fa-question' }
+    { value: 'Createur/Artiste', label: 'Créateur/Artiste', icon: 'fas fa-paint-brush' },
+    { value: 'Consommateur de contenu', label: 'Consommateur de contenu', icon: 'fas fa-user' },
+    { value: 'Investisseur', label: 'Investisseur', icon: 'fas fa-chart-line' },
+    { value: 'Developpeur', label: 'Développeur', icon: 'fas fa-code' },
+    { value: 'Autre', label: 'Autre', icon: 'fas fa-question' }
   ];
 
   const handleInputChange = (e) => {
@@ -44,24 +44,49 @@ const EarlyAccess = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simuler l'envoi du formulaire
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        domain: '',
-        userType: '',
-        newsletter: true
+    try {
+      // URL Google Forms pour Early Access
+      const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSftYeyhaFHbZ1q79Wk2bz6PPOrOrmoBLK1W0BUjSw4bywKewg/formResponse';
+      
+      // Paramètres du formulaire Google
+      const googleFormData = new FormData();
+      googleFormData.append('entry.1213968582', formData.firstName); // Prénom
+      googleFormData.append('entry.445380962', formData.lastName);   // Nom
+      googleFormData.append('entry.1719479834', formData.email);     // Email
+      
+      // Envoyer directement les valeurs (sans émojis) à Google Forms
+      googleFormData.append('entry.607364370', formData.domain);     // Domaine
+      googleFormData.append('entry.1291402694', formData.userType);  // Type d'utilisateur
+      googleFormData.append('entry.984670974', formData.newsletter ? 'Oui, je souhaite recevoir les actualités' : ''); // Newsletter
+      
+      // Envoyer à Google Forms
+      await fetch(GOOGLE_FORMS_URL, {
+        method: 'POST',
+        body: googleFormData,
+        mode: 'no-cors'
       });
-    }, 3000);
+      
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          domain: '',
+          userType: '',
+          newsletter: true
+        });
+      }, 3000);
+      
+    } catch (error) {
+      console.error('Erreur formulaire Early Access:', error);
+      setIsSubmitting(false);
+      // Afficher un message d'erreur si nécessaire
+    }
   };
 
   const stats = [
