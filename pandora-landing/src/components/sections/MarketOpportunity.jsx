@@ -143,7 +143,7 @@ const MarketOpportunity = () => {
               transition={{ duration: 0.8 }}
               className="inline-block mb-4"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-2xl">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-2xl">
                 <i className="fas fa-chart-bar text-white text-2xl"></i>
               </div>
             </motion.div>
@@ -257,26 +257,26 @@ const MarketOpportunity = () => {
         {/* Bottom CTA */}
         <FadeIn direction="up" delay={0.8}>
           <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-6 border border-purple-500/30 max-w-4xl mx-auto">
-              <h3 className="text-xl font-bold text-white mb-3">
+            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-4 border border-purple-500/30 max-w-4xl mx-auto">
+              <h3 className="text-lg font-bold text-white mb-2">
                 L'Opportunité est Maintenant
               </h3>
-              <p className="text-gray-300 mb-4 max-w-2xl mx-auto text-sm">
+              <p className="text-gray-300 mb-3 max-w-2xl mx-auto text-sm">
                 Le marché est prêt, la technologie est mature, et les créateurs attendent une solution comme Pandora. 
                 Rejoignez-nous pour capturer cette opportunité unique.
               </p>
-              <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold gradient-text mb-1">2.1T$</div>
-                  <div className="text-gray-400 text-sm">Marché total</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">2.1T$</div>
+                  <div className="text-gray-400 text-xs">Marché total</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold gradient-text mb-1">25.3%</div>
-                  <div className="text-gray-400 text-sm">Croissance africaine</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">25.3%</div>
+                  <div className="text-gray-400 text-xs">Croissance africaine</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold gradient-text mb-1">70%</div>
-                  <div className="text-gray-400 text-sm">Réduction de complexité</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">70%</div>
+                  <div className="text-gray-400 text-xs">Réduction de complexité</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

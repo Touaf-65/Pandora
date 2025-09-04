@@ -196,7 +196,7 @@ const UseCases = () => {
                  </p>
 
                  {/* Features */}
-                 <div className="space-y-1 mb-4">
+                 <div className="space-y-1 mb-2">
                    <h4 className="text-white font-semibold mb-2 text-sm">Fonctionnalités utilisées :</h4>
                    {useCase.features.map((feature, idx) => (
                      <div key={idx} className="flex items-center space-x-3">
@@ -206,15 +206,6 @@ const UseCases = () => {
                    ))}
                  </div>
 
-                                 {/* CTA */}
-                 <motion.button
-                   whileHover={{ scale: 1.05 }}
-                   whileTap={{ scale: 0.95 }}
-                   className={`w-full py-2 px-4 bg-gradient-to-r ${useCase.color} bg-opacity-20 text-white rounded-lg border border-opacity-30 hover:bg-opacity-30 transition-all duration-300 font-medium text-sm`}
-                 >
-                   <i className="fas fa-arrow-right mr-2"></i>
-                   Voir le cas complet
-                 </motion.button>
               </Card>
             </motion.div>
           ))}
