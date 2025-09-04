@@ -6,7 +6,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
-  // Gestion du thème
+  // Gestion du thème - Temporairement désactivé
+  /*
   useEffect(() => {
     const savedTheme = localStorage.getItem('pandora-theme');
     if (savedTheme) {
@@ -20,6 +21,7 @@ const Header = () => {
     localStorage.setItem('pandora-theme', newTheme ? 'dark' : 'light');
     document.documentElement.classList.toggle('light-theme', !newTheme);
   };
+  */
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -74,15 +76,18 @@ const Header = () => {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            {/* Toggle Theme */}
+            {/* Toggle Theme - Temporairement désactivé */}
+            {/* 
             <motion.button
               onClick={toggleTheme}
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:text-white transition-colors duration-300"
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:text-white transition-all duration-300 hover:bg-white/20"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              title={isDark ? 'Passer au thème clair' : 'Passer au thème sombre'}
             >
-              <i className={`fas ${isDark ? 'fa-sun' : 'fa-moon'}`}></i>
+              <i className={`fas ${isDark ? 'fa-sun' : 'fa-moon'} transition-transform duration-300`}></i>
             </motion.button>
+            */}
 
             {/* CTA Button */}
             <Button
