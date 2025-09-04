@@ -1,12 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import FadeIn from '../animations/FadeIn';
 
 const Footer = () => {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    
+    if (!newsletterEmail) {
+      setSubmitMessage('Veuillez entrer une adresse email valide.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      // URL Google Forms
+      const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScHSdhzTmah6ByC_EBQBOMjjd8g-5r4IzVhVt3wSHxYKDqe6w/formResponse';
+      
+      // Paramètres du formulaire Google
+      const formData = new FormData();
+      formData.append('entry.143721983', newsletterEmail);
+      
+      // Envoyer à Google Forms
+      fetch(GOOGLE_FORMS_URL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
+      
+      setSubmitMessage('Merci ! Votre email a été enregistré.');
+      setNewsletterEmail('');
+    } catch (error) {
+      setSubmitMessage('Erreur lors de l\'enregistrement. Veuillez réessayer.');
+      console.error('Erreur formulaire:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -20,17 +60,12 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: 'fab fa-twitter', label: 'Twitter', url: 'https://twitter.com/pandora_platform' },
-    { icon: 'fab fa-linkedin', label: 'LinkedIn', url: 'https://linkedin.com/company/pandora-platform' },
-    { icon: 'fab fa-instagram', label: 'Instagram', url: 'https://instagram.com/pandora_platform' },
-    { icon: 'fab fa-youtube', label: 'YouTube', url: 'https://youtube.com/@pandora-platform' },
     { icon: 'fab fa-github', label: 'GitHub', url: 'https://github.com/pandora-platform' }
   ];
 
   const contactInfo = [
     { icon: 'fas fa-envelope', label: 'contact@pandora.africa', action: () => window.open('mailto:contact@pandora.africa') },
-    { icon: 'fas fa-phone', label: '+33 1 23 45 67 89', action: () => window.open('tel:+33123456789') },
-    { icon: 'fas fa-map-marker-alt', label: 'Paris, France & Dakar, Sénégal', action: () => window.open('https://maps.google.com', '_blank') }
+    { icon: 'fas fa-phone', label: '+33 1 23 45 67 89', action: () => window.open('tel:+33123456789') }
   ];
 
   return (
@@ -41,11 +76,11 @@ const Footer = () => {
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-pink-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full px-8 relative z-10">
         {/* Main Footer Content */}
-        <div className="py-6">
+        <div className="py-4">
           {/* First Row: Brand & Navigation */}
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-6">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 mb-4">
             {/* Brand Section */}
             <FadeIn direction="up" delay={0.2}>
               <div className="flex items-center space-x-4">
@@ -95,7 +130,7 @@ const Footer = () => {
 
           {/* Second Row: Contact Info */}
           <FadeIn direction="up" delay={0.4}>
-            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6">
+            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4">
               {contactInfo.map((contact, index) => (
                 <motion.button
                   key={index}
@@ -113,31 +148,55 @@ const Footer = () => {
 
           {/* Newsletter Section */}
           <FadeIn direction="up" delay={0.6}>
-            <div className="mt-6 pt-4 border-t border-white/10">
-              <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-lg p-4 border border-purple-500/30">
+            <div className="mt-4 pt-3 border-t border-white/10">
+              <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-lg p-3 border border-purple-500/30">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-center sm:text-left">
-                    <h3 className="text-xl font-bold text-white mb-2">
+                    <h3 className="text-lg font-bold text-white mb-1">
                       Restez Connecté avec Pandora
                     </h3>
-                    <p className="text-gray-300 text-sm">
+                    <p className="text-gray-300 text-xs">
                       Recevez les dernières actualités et opportunités exclusives.
                     </p>
                   </div>
-                  <div className="flex gap-3">
-                    <input
-                      type="email"
-                      placeholder="Votre email"
-                      className="w-48 px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300 text-sm"
-                    />
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 text-sm"
-                    >
-                      S'abonner
-                    </motion.button>
-                  </div>
+                  <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-3">
+                    <div className="flex gap-3">
+                      <input
+                        type="email"
+                        placeholder="Votre email"
+                        value={newsletterEmail}
+                        onChange={(e) => setNewsletterEmail(e.target.value)}
+                        className="w-48 px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300 text-sm"
+                        required
+                      />
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+                        whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+                        className={`px-4 py-2 font-semibold rounded-lg transition-all duration-300 text-sm ${
+                          isSubmitting 
+                            ? 'bg-gray-500 text-gray-300 cursor-not-allowed' 
+                            : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600'
+                        }`}
+                      >
+                        {isSubmitting ? 'Envoi...' : 'S\'abonner'}
+                      </motion.button>
+                    </div>
+                    {submitMessage && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className={`text-xs ${
+                          submitMessage.includes('Merci') 
+                            ? 'text-green-400' 
+                            : 'text-red-400'
+                        }`}
+                      >
+                        {submitMessage}
+                      </motion.p>
+                    )}
+                  </form>
                 </div>
               </div>
             </div>
@@ -145,7 +204,7 @@ const Footer = () => {
 
         {/* Bottom Footer */}
         <FadeIn direction="up" delay={0.8}>
-          <div className="py-3 border-t border-white/10">
+          <div className="py-2 border-t border-white/10">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
               <div className="flex items-center space-x-3 text-sm text-gray-400">
                 <span>© 2024 Pandora. Tous droits réservés.</span>
