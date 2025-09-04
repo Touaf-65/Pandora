@@ -76,11 +76,11 @@ const Team = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <FadeIn direction="up" delay={0.2}>
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-black mb-6">
+          <div className="text-center mb-3">
+            <h2 className="text-3xl md:text-4xl font-black mb-2">
               <span className="gradient-text">Notre Équipe</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base text-gray-300 max-w-3xl mx-auto">
               Une équipe passionnée qui combine expertise technique et vision artistique pour révolutionner l'expérience culturelle
             </p>
           </div>
@@ -92,7 +92,7 @@ const Team = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+          className="grid lg:grid-cols-2 gap-4 max-w-4xl mx-auto"
         >
           {teamMembers.map((member, index) => (
             <motion.div
@@ -104,37 +104,37 @@ const Team = () => {
                 className={`${member.borderColor} hover:${member.borderColor.replace('/30', '/50')} h-full`}
                 glow
               >
-                <div className="text-center mb-6">
+                <div className="text-center mb-3">
                   {/* Avatar */}
-                  <div className="w-20 h-20 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                  <div className="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 text-lg">
                     {member.avatar}
                   </div>
                   
                   {/* Name & Role */}
-                  <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                  <p className={`text-base font-semibold bg-gradient-to-r ${member.color} bg-clip-text text-transparent mb-3`}>
+                  <h3 className="text-base font-bold text-white mb-1">{member.name}</h3>
+                  <p className={`text-xs font-semibold bg-gradient-to-r ${member.color} bg-clip-text text-transparent mb-1`}>
                     {member.role}
                   </p>
                   
                   {/* Quote */}
-                  <blockquote className="text-gray-400 italic text-xs mb-4">
+                  <blockquote className="text-gray-400 italic text-xs mb-2">
                     "{member.quote}"
                   </blockquote>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 mb-4 leading-relaxed text-sm">
+                <p className="text-gray-300 mb-2 leading-relaxed text-xs">
                   {member.description}
                 </p>
 
                 {/* Skills */}
-                <div className="mb-4">
-                  <h4 className="text-white font-semibold mb-2 text-sm">Compétences</h4>
+                <div className="mb-2">
+                  <h4 className="text-white font-semibold mb-1 text-xs">Compétences</h4>
                   <div className="flex flex-wrap gap-1">
                     {member.skills.map((skill, idx) => (
                       <span
                         key={idx}
-                        className={`px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${member.color} bg-opacity-20 text-white border border-opacity-30`}
+                        className={`px-1.5 py-0.5 rounded-full text-xs font-medium bg-gradient-to-r ${member.color} bg-opacity-20 text-white border border-opacity-30`}
                       >
                         {skill}
                       </span>
@@ -143,12 +143,12 @@ const Team = () => {
                 </div>
 
                 {/* Experience & Education */}
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="text-center p-2 bg-white/5 rounded-lg">
-                    <div className="text-white font-bold text-sm">{member.experience}</div>
+                <div className="grid grid-cols-2 gap-1 mb-2">
+                  <div className="text-center p-1.5 bg-white/5 rounded-lg">
+                    <div className="text-white font-bold text-xs">{member.experience}</div>
                     <div className="text-gray-400 text-xs">Expérience</div>
                   </div>
-                  <div className="text-center p-2 bg-white/5 rounded-lg">
+                  <div className="text-center p-1.5 bg-white/5 rounded-lg">
                     <div className="text-white font-bold text-xs">{member.education}</div>
                     <div className="text-gray-400 text-xs">Formation</div>
                   </div>

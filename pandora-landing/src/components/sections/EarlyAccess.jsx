@@ -82,58 +82,58 @@ const EarlyAccess = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <FadeIn direction="up" delay={0.2}>
-          <div className="text-center mb-8">
+          <div className="text-center mb-4">
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="inline-block mb-4"
+              className="inline-block mb-3"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-2xl">
-                <i className="fas fa-rocket text-white text-2xl"></i>
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-2xl">
+                <i className="fas fa-rocket text-white text-lg"></i>
               </div>
             </motion.div>
-            <h2 className="text-3xl md:text-4xl font-black mb-4">
+            <h2 className="text-3xl md:text-4xl font-black mb-3">
               <span className="gradient-text">Early Access</span>
             </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Rejoignez l'aventure Pandora en avant-première et soyez parmi les premiers à découvrir la révolution culturelle numérique
             </p>
           </div>
         </FadeIn>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {/* Form Section */}
           <FadeIn direction="left" delay={0.4}>
             <Card className="border-purple-500/30 hover:border-purple-500/50 transform hover:scale-105 transition-all duration-500" glow>
-              <div className="text-center mb-4">
+              <div className="text-center mb-3">
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
-                  className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3 shadow-lg"
+                  className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-2 shadow-lg"
                 >
-                  <i className="fas fa-rocket text-white text-lg"></i>
+                  <i className="fas fa-rocket text-white text-sm"></i>
                 </motion.div>
-                <h3 className="text-xl font-bold text-white mb-1">Rejoignez l'Early Access</h3>
-                <p className="text-gray-400 text-sm">Accès exclusif • Fonctionnalités premium • Support prioritaire</p>
+                <h3 className="text-lg font-bold text-white mb-1">Rejoignez l'Early Access</h3>
+                <p className="text-gray-400 text-xs">Accès exclusif • Fonctionnalités premium • Support prioritaire</p>
               </div>
 
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3">
                   {/* Name Fields */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3">
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-white font-semibold mb-1 text-sm">Prénom *</label>
+                      <label className="block text-white font-semibold mb-1 text-xs">Prénom *</label>
                       <input
                         type="text"
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300 text-sm"
+                        className="w-full px-2 py-1.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300 text-xs"
                         placeholder="Votre prénom"
                       />
                     </motion.div>
@@ -141,14 +141,14 @@ const EarlyAccess = () => {
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-white font-semibold mb-1 text-sm">Nom *</label>
+                      <label className="block text-white font-semibold mb-1 text-xs">Nom *</label>
                       <input
                         type="text"
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300 text-sm"
+                        className="w-full px-2 py-1.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300 text-xs"
                         placeholder="Votre nom"
                       />
                     </motion.div>
@@ -159,14 +159,14 @@ const EarlyAccess = () => {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <label className="block text-white font-semibold mb-1 text-sm">Email *</label>
+                    <label className="block text-white font-semibold mb-1 text-xs">Email *</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300 text-sm"
+                      className="w-full px-2 py-1.5 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-all duration-300 text-xs"
                       placeholder="votre@email.com"
                     />
                   </motion.div>
@@ -176,13 +176,13 @@ const EarlyAccess = () => {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <label className="block text-white font-semibold mb-1 text-sm">Domaine d'intérêt *</label>
+                    <label className="block text-white font-semibold mb-1 text-xs">Domaine d'intérêt *</label>
                     <select
                       name="domain"
                       value={formData.domain}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:border-purple-500 focus:outline-none transition-all duration-300 text-sm"
+                      className="w-full px-2 py-1.5 bg-slate-800 border border-white/10 rounded-lg text-white focus:border-purple-500 focus:outline-none transition-all duration-300 text-xs"
                     >
                       <option value="">Sélectionnez un domaine</option>
                       {domains.map(domain => (
@@ -198,13 +198,13 @@ const EarlyAccess = () => {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <label className="block text-white font-semibold mb-1 text-sm">Type d'utilisateur *</label>
+                    <label className="block text-white font-semibold mb-1 text-xs">Type d'utilisateur *</label>
                     <select
                       name="userType"
                       value={formData.userType}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:border-purple-500 focus:outline-none transition-all duration-300 text-sm"
+                      className="w-full px-2 py-1.5 bg-slate-800 border border-white/10 rounded-lg text-white focus:border-purple-500 focus:outline-none transition-all duration-300 text-xs"
                     >
                       <option value="">Sélectionnez votre profil</option>
                       {userTypes.map(type => (
@@ -286,7 +286,7 @@ const EarlyAccess = () => {
           <FadeIn direction="right" delay={0.6}>
             <div className="space-y-4">
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-3 mb-4">
+              <div className="grid grid-cols-3 gap-2 mb-3">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
@@ -294,19 +294,19 @@ const EarlyAccess = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.2, duration: 0.6 }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="text-center p-3 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm"
+                    className="text-center p-2 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm"
                   >
-                    <div className="text-2xl font-bold gradient-text mb-1">{stat.value}</div>
-                    <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
+                    <div className="text-lg font-bold gradient-text mb-1">{stat.value}</div>
+                    <div className="text-gray-400 text-xs font-medium">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
 
               {/* Benefits List */}
-              <div className="space-y-3">
-                <h3 className="text-xl font-bold text-white mb-3 text-center">Avantages Early Access</h3>
+              <div className="space-y-2">
+                <h3 className="text-lg font-bold text-white mb-2 text-center">Avantages Early Access</h3>
                 
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {[
                     {
                       icon: 'fas fa-crown',

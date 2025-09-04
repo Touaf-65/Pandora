@@ -182,19 +182,19 @@ const Roadmap = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="relative"
         >
           {/* Timeline Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-500 to-pink-500 h-full hidden lg:block"></div>
 
           {/* Phases */}
-                     <div className="space-y-8">
+                     <div className="space-y-6">
             {phases.map((phase, index) => (
               <motion.div
                 key={phase.id}
                 variants={phaseVariants}
-                className={`relative flex flex-col lg:flex-row items-center gap-8 ${
+                className={`relative flex flex-col lg:flex-row items-center gap-6 ${
                   index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
                 }`}
               >
@@ -202,20 +202,20 @@ const Roadmap = () => {
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-slate-900 z-10 hidden lg:block"></div>
 
                 {/* Phase Card */}
-                <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'}`}>
+                <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-6' : 'lg:pl-6'}`}>
                   <Card className="border-purple-500/30 hover:border-purple-500/50 transform hover:scale-105 transition-all duration-500" glow>
                                          {/* Header */}
-                     <div className="flex items-start justify-between mb-4">
-                       <div className="flex items-center space-x-3">
+                     <div className="flex items-start justify-between mb-3">
+                       <div className="flex items-center space-x-2">
                          <motion.div
                            whileHover={{ rotate: 360 }}
                            transition={{ duration: 0.6 }}
-                           className={`w-10 h-10 bg-gradient-to-r ${phase.statusColor} rounded-lg flex items-center justify-center shadow-lg`}
+                           className={`w-8 h-8 bg-gradient-to-r ${phase.statusColor} rounded-lg flex items-center justify-center shadow-lg`}
                          >
-                           <i className={`${phase.icon} text-white text-lg`}></i>
+                           <i className={`${phase.icon} text-white text-sm`}></i>
                          </motion.div>
                          <div>
-                           <h3 className="text-lg font-bold text-white mb-1">{phase.title}</h3>
+                           <h3 className="text-base font-bold text-white mb-1">{phase.title}</h3>
                            <p className="text-gray-400 text-xs">{phase.period}</p>
                          </div>
                        </div>
@@ -227,17 +227,17 @@ const Roadmap = () => {
                      </div>
 
                                          {/* Description */}
-                     <p className="text-gray-300 mb-4 leading-relaxed text-sm">
+                     <p className="text-gray-300 mb-3 leading-relaxed text-xs">
                        {phase.description}
                      </p>
 
                      {/* Features */}
-                     <div className="mb-4">
-                       <h4 className="text-white font-semibold mb-2 text-sm">Fonctionnalités principales :</h4>
-                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                     <div className="mb-3">
+                       <h4 className="text-white font-semibold mb-2 text-xs">Fonctionnalités principales :</h4>
+                       <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
                          {phase.features.map((feature, idx) => (
                            <div key={idx} className="flex items-center space-x-2">
-                             <div className={`w-2 h-2 bg-gradient-to-r ${phase.statusColor} rounded-full flex-shrink-0`}></div>
+                             <div className={`w-1.5 h-1.5 bg-gradient-to-r ${phase.statusColor} rounded-full flex-shrink-0`}></div>
                              <span className="text-gray-300 text-xs">{feature}</span>
                            </div>
                          ))}
@@ -245,12 +245,12 @@ const Roadmap = () => {
                      </div>
 
                                          {/* Milestones */}
-                     <div className="mb-4">
-                       <h4 className="text-white font-semibold mb-2 text-sm">Milestones :</h4>
-                       <div className="space-y-1">
+                     <div className="mb-3">
+                       <h4 className="text-white font-semibold mb-2 text-xs">Milestones :</h4>
+                       <div className="space-y-0.5">
                          {phase.milestones.map((milestone, idx) => (
-                           <div key={idx} className="flex items-center space-x-3">
-                             <div className={`w-3 h-3 rounded-full flex items-center justify-center ${
+                           <div key={idx} className="flex items-center space-x-2">
+                             <div className={`w-2.5 h-2.5 rounded-full flex items-center justify-center ${
                                milestone.completed 
                                  ? 'bg-green-500' 
                                  : 'bg-gray-600 border border-gray-500'
@@ -268,17 +268,17 @@ const Roadmap = () => {
                      </div>
 
                                          {/* Metrics */}
-                     <div className="grid grid-cols-3 gap-3 p-3 bg-white/5 rounded-lg border border-white/10">
+                     <div className="grid grid-cols-3 gap-2 p-2 bg-white/5 rounded-lg border border-white/10">
                        <div className="text-center">
-                         <div className="text-lg font-bold gradient-text">{phase.metrics.users}</div>
+                         <div className="text-base font-bold gradient-text">{phase.metrics.users}</div>
                          <div className="text-gray-400 text-xs">Utilisateurs</div>
                        </div>
                        <div className="text-center">
-                         <div className="text-lg font-bold gradient-text">{phase.metrics.content}</div>
+                         <div className="text-base font-bold gradient-text">{phase.metrics.content}</div>
                          <div className="text-gray-400 text-xs">Contenus</div>
                        </div>
                        <div className="text-center">
-                         <div className="text-lg font-bold gradient-text">{phase.metrics.revenue}</div>
+                         <div className="text-base font-bold gradient-text">{phase.metrics.revenue}</div>
                          <div className="text-gray-400 text-xs">Revenus</div>
                        </div>
                      </div>
@@ -292,26 +292,26 @@ const Roadmap = () => {
                  {/* Bottom CTA */}
          <FadeIn direction="up" delay={0.8}>
            <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-6 border border-purple-500/30 max-w-4xl mx-auto">
-              <h3 className="text-xl font-bold text-white mb-3">
+            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-4 border border-purple-500/30 max-w-4xl mx-auto">
+              <h3 className="text-lg font-bold text-white mb-2">
                 Rejoignez l'Aventure Pandora
               </h3>
-              <p className="text-gray-300 mb-4 max-w-2xl mx-auto text-sm">
+              <p className="text-gray-300 mb-3 max-w-2xl mx-auto text-sm">
                 Chaque phase de notre roadmap représente une étape vers la révolution culturelle. 
                 Soyez parmi les premiers à participer à cette transformation.
               </p>
-              <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold gradient-text mb-1">4</div>
-                  <div className="text-gray-400 text-sm">Phases stratégiques</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">4</div>
+                  <div className="text-gray-400 text-xs">Phases stratégiques</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold gradient-text mb-1">24</div>
-                  <div className="text-gray-400 text-sm">Mois de développement</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">24</div>
+                  <div className="text-gray-400 text-xs">Mois de développement</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold gradient-text mb-1">1M+</div>
-                  <div className="text-gray-400 text-sm">Utilisateurs cibles</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">1M+</div>
+                  <div className="text-gray-400 text-xs">Utilisateurs cibles</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
