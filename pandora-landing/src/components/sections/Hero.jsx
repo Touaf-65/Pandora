@@ -66,7 +66,7 @@ const Hero = () => {
         >
           <FadeIn direction="down" delay={0.4}>
             <motion.h1
-              className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-blue-200 mb-6"
+              className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-blue-200 mb-6"
               animate={inView ? { 
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
               } : {}}
@@ -77,20 +77,20 @@ const Hero = () => {
           </FadeIn>
           
           <FadeIn direction="up" delay={0.6}>
-            <p className="text-xl md:text-2xl text-gray-300 mb-4 font-light">
+            <p className="text-base md:text-lg text-gray-300 mb-4 font-light">
               L'Univers Culturel Réinventé
             </p>
           </FadeIn>
           
           <FadeIn direction="up" delay={0.8}>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
+            <h2 className="text-xl md:text-3xl font-bold text-white mb-8 leading-tight">
               Littérature, Musique & Art<br />
               <span className="gradient-text">Réunis en Une Seule App</span>
             </h2>
           </FadeIn>
           
           <FadeIn direction="up" delay={1.0}>
-            <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm md:text-base text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
               Découvrez une plateforme révolutionnaire qui transforme votre façon de consommer et créer du contenu culturel. 
               Une expérience immersive où chaque créateur trouve sa voix et chaque amateur sa passion.
             </p>

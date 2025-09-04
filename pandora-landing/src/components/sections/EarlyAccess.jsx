@@ -93,7 +93,7 @@ const EarlyAccess = () => {
                 <i className="fas fa-rocket text-white text-2xl"></i>
               </div>
             </motion.div>
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
+            <h2 className="text-3xl md:text-4xl font-black mb-4">
               <span className="gradient-text">Early Access</span>
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">

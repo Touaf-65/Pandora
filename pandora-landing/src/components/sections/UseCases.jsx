@@ -132,7 +132,7 @@ const UseCases = () => {
                 <i className="fas fa-lightbulb text-white text-2xl"></i>
               </div>
             </motion.div>
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
+            <h2 className="text-3xl md:text-4xl font-black mb-4">
               <span className="gradient-text">Cas d'Usage</span>
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -222,12 +222,12 @@ const UseCases = () => {
 
                  {/* Bottom CTA */}
          <FadeIn direction="up" delay={0.8}>
-           <div className="text-center mt-8">
-            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 border border-purple-500/30 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-4">
+           <div className="text-center mt-12">
+            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-6 border border-purple-500/30 max-w-4xl mx-auto">
+              <h3 className="text-xl font-bold text-white mb-3">
                 Votre Cas d'Usage Existe-t-il ?
               </h3>
-              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+              <p className="text-gray-300 mb-4 max-w-2xl mx-auto text-sm">
                 Pandora s'adapte à tous les besoins créatifs. Que vous soyez artiste, éducateur, 
                 entrepreneur ou passionné, nous avons une solution pour vous.
               </p>

@@ -77,7 +77,7 @@ const Team = () => {
         {/* Header */}
         <FadeIn direction="up" delay={0.2}>
           <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
+            <h2 className="text-3xl md:text-4xl font-black mb-6">
               <span className="gradient-text">Notre Équipe</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -188,9 +188,9 @@ const Team = () => {
 
         {/* Values Section */}
         <FadeIn direction="up" delay={0.8}>
-          <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 border border-purple-500/30 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-6">
+          <div className="text-center mt-12">
+            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-6 border border-purple-500/30 max-w-4xl mx-auto">
+              <h3 className="text-xl font-bold text-white mb-3">
                 Nos Valeurs
               </h3>
               <div className="grid md:grid-cols-3 gap-6">

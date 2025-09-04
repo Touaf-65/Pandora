@@ -90,7 +90,7 @@ const Features = () => {
   };
 
   return (
-    <section id="features" className="py-12 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+    <section id="features" className="py-8 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
@@ -101,11 +101,11 @@ const Features = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <FadeIn direction="up" delay={0.2}>
-          <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
+          <div className="text-center mb-4">
+            <h2 className="text-3xl md:text-4xl font-black mb-3">
               <span className="gradient-text">Fonctionnalités</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Découvrez les trois piliers de Pandora qui révolutionnent l'expérience culturelle numérique
             </p>
           </div>
@@ -117,7 +117,7 @@ const Features = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          className="grid lg:grid-cols-3 gap-4 max-w-5xl mx-auto"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -130,33 +130,33 @@ const Features = () => {
                 glow
               >
                 {/* Icon */}
-                <div className="text-center mb-4">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                    <i className={`${feature.icon} text-white text-xl`}></i>
+                <div className="text-center mb-1">
+                  <div className={`w-8 h-8 bg-gradient-to-r ${feature.color} rounded-lg flex items-center justify-center mx-auto mb-1 group-hover:scale-110 transition-transform duration-300`}>
+                    <i className={`${feature.icon} text-white text-sm`}></i>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1">{feature.title}</h3>
-                  <p className="text-gray-400 font-medium text-sm">{feature.subtitle}</p>
+                  <h3 className="text-base font-bold text-white mb-1">{feature.title}</h3>
+                  <p className="text-gray-400 font-medium text-xs">{feature.subtitle}</p>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 mb-4 leading-relaxed text-sm">
+                <p className="text-gray-300 mb-1 leading-relaxed text-xs">
                   {feature.description}
                 </p>
 
                 {/* Features List */}
-                <div className="space-y-2 mb-4">
+                <div className="space-y-0.5 mb-1">
                   {feature.features.map((item, idx) => (
-                    <div key={idx} className="flex items-center space-x-3">
-                      <div className={`w-2 h-2 bg-gradient-to-r ${feature.color} rounded-full flex-shrink-0`}></div>
+                    <div key={idx} className="flex items-center space-x-2">
+                      <div className={`w-1.5 h-1.5 bg-gradient-to-r ${feature.color} rounded-full flex-shrink-0`}></div>
                       <span className="text-gray-300 text-xs">{item}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Stats */}
-                <div className="border-t border-white/10 pt-3">
+                <div className="border-t border-white/10 pt-1">
                   <div className="text-center">
-                    <div className={`text-xl font-bold bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}>
+                    <div className={`text-base font-bold bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}>
                       {feature.stats.value}
                     </div>
                     <div className="text-gray-400 text-xs">{feature.stats.label}</div>
@@ -169,12 +169,12 @@ const Features = () => {
 
         {/* Bottom CTA */}
         <FadeIn direction="up" delay={0.8}>
-          <div className="text-center mt-8">
-            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 border border-purple-500/30 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-4">
+          <div className="text-center mt-12">
+            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-6 border border-purple-500/30 max-w-4xl mx-auto">
+              <h3 className="text-xl font-bold text-white mb-3">
                 Une Expérience Culturelle Unifiée
               </h3>
-              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+              <p className="text-gray-300 mb-4 max-w-2xl mx-auto text-sm">
                 Pandora brise les frontières entre les arts. Créez des projets multi-médias, 
                 collaborez avec des artistes d'autres disciplines, et découvrez de nouvelles 
                 formes d'expression artistique.
