@@ -6,7 +6,7 @@ export function PlayerBar() {
     <div
       role="region"
       aria-label="Lecteur audio"
-      className="sticky bottom-0 z-20 hidden items-center gap-6 border-t border-border bg-surface/90 px-6 py-3 backdrop-blur lg:flex"
+      className="glass sticky bottom-3 z-20 mx-6 mb-3 hidden items-center gap-6 rounded-card px-5 py-3 lg:flex"
     >
       <div className="flex min-w-0 flex-1 items-center gap-3">
         <div className="size-12 shrink-0 rounded-md bg-surface-muted" />
@@ -21,7 +21,7 @@ export function PlayerBar() {
           <button type="button" aria-label="Précédent" className="flex size-10 items-center justify-center rounded-full text-muted hover:text-ink">
             <SkipBack className="size-5" aria-hidden />
           </button>
-          <button type="button" aria-label="Lecture" className="flex size-11 items-center justify-center rounded-full bg-ink text-surface">
+          <button type="button" aria-label="Lecture" className="flex size-11 items-center justify-center rounded-full bg-accent text-accent-ink hover:bg-accent-hover">
             <Play className="size-5" aria-hidden />
           </button>
           <button type="button" aria-label="Suivant" className="flex size-10 items-center justify-center rounded-full text-muted hover:text-ink">

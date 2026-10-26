@@ -16,7 +16,7 @@ export function MobileNavList({ pathname }: { pathname: string | null }) {
   return (
     <nav
       aria-label="Navigation principale"
-      className="sticky bottom-0 z-30 grid grid-cols-5 border-t border-border bg-surface/90 backdrop-blur lg:hidden"
+      className="glass sticky bottom-3 z-30 mx-3 mb-3 grid grid-cols-5 rounded-card lg:hidden"
     >
       {items.map(({ label, href, icon: Icon }) => {
         const active = pathname !== null && isActive(pathname, href);

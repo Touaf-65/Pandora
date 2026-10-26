@@ -28,11 +28,11 @@ export function SidebarNavList({ pathname }: { pathname: string | null }) {
                 aria-current={active ? "page" : undefined}
                 className={`flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm transition-colors ${
                   active
-                    ? "bg-surface-muted font-semibold text-ink"
-                    : "text-muted hover:bg-surface-muted hover:text-ink"
+                    ? "bg-accent-soft font-semibold text-accent-hover"
+                    : "text-muted hover:bg-white/70 hover:text-ink"
                 }`}
               >
-                <Icon className={`size-5 ${active ? "text-accent" : ""}`} aria-hidden />
+                <Icon className="size-5" aria-hidden />
                 {label}
               </Link>
             );

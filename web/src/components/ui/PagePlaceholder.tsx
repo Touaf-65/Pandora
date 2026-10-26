@@ -31,7 +31,7 @@ export function PagePlaceholder({ title, description, phase, sections, detail }:
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-8">
       <header className="flex flex-col gap-3">
-        <span className="w-fit rounded-full border border-border bg-surface px-3 py-1 text-xs font-semibold text-muted">
+        <span className="w-fit rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-hover">
           {phaseLabel[phase]}
         </span>
         <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
@@ -47,7 +47,7 @@ export function PagePlaceholder({ title, description, phase, sections, detail }:
         {sections.map((section) => (
           <li
             key={section}
-            className="flex min-h-28 items-end rounded-2xl border border-dashed border-border bg-surface p-5 text-sm font-medium"
+            className="glass flex min-h-28 items-end rounded-card p-5 text-sm font-medium"
           >
             {section}
           </li>

@@ -1,29 +1,60 @@
 @import "tailwindcss";
 
 /*
- * Design tokens — provisional neutral values.
- * The real palette (light, corporate, glassmorphism without background
- * gradients) will replace these values here, in one place.
+ * Pandora design tokens — light, corporate theme with glass surfaces.
+ * Plain background (no colored gradients); depth comes from translucent
+ * white panels, blur, hairline borders and soft shadows.
  */
 @theme {
-  --color-bg: #f5f5f7;
+  /* Neutrals */
+  --color-bg: #f4f6f9;
   --color-surface: #ffffff;
-  --color-surface-muted: #f0f0f3;
-  --color-border: #e3e3e8;
-  --color-ink: #18181b;
-  --color-muted: #5b5b66;
-  --color-accent: #4f46e5;
+  --color-surface-muted: #edf0f5;
+  --color-border: #e1e6ee;
+  --color-ink: #0f172a;
+  --color-muted: #5b6475;
+
+  /* Brand accent: a clear corporate blue */
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-soft: #e8efff;
   --color-accent-ink: #ffffff;
 
-  /* Domain colors */
-  --color-lit: #a16207;
+  /* Domains: text color + soft tint */
+  --color-lit: #b45309;
+  --color-lit-soft: #fdf3e6;
   --color-mus: #be185d;
+  --color-mus-soft: #fcebf3;
   --color-art: #0e7490;
+  --color-art-soft: #e6f5f8;
+
+  /* Status */
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-danger: #b91c1c;
+
+  --radius-card: 1rem;
+
+  --shadow-glass: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px rgb(15 23 42 / 0.06);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Frosted panel: translucent white, blurred backdrop, light edge. */
+@utility glass {
+  background-color: rgb(255 255 255 / 0.72);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgb(255 255 255 / 0.9);
+  box-shadow: var(--shadow-glass), inset 0 0 0 1px rgb(15 23 42 / 0.04);
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
