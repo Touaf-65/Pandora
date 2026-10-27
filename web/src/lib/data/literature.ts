@@ -245,3 +245,7 @@ export async function getSimilarWorks(work: LiteraryWork): Promise<WorkSummary[]
 export function readerHref(slug: string, chapter: number) {
   return `/lire/${slug}/${chapter}`;
 }
+
+export async function getWorks(): Promise<LiteraryWork[]> {
+  return works;
+}

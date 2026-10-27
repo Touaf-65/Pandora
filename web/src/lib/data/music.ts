@@ -213,3 +213,11 @@ export function albumToSummary(a: Album): WorkSummary {
 export function totalDuration(tracks: Track[]) {
   return tracks.reduce((sum, t) => sum + t.duration, 0);
 }
+
+export async function getAlbums(): Promise<Album[]> {
+  return albums;
+}
+
+export async function getArtists(): Promise<Artist[]> {
+  return artists;
+}

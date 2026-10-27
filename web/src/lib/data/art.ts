@@ -167,3 +167,11 @@ export async function getExhibitionFor(artworkId: string) {
 export function artworkToSummary(a: Artwork): WorkSummary {
   return { id: a.id, domain: "art", title: a.title, creator: a.artist.name, href: `/art/oeuvre/${a.id}` };
 }
+
+export async function getAllArtworks(): Promise<Artwork[]> {
+  return artworks;
+}
+
+export async function getExhibitions(): Promise<Exhibition[]> {
+  return exhibitions;
+}
