@@ -63,7 +63,7 @@ async function ArtistDetails({ params }: { params: PageProps<"/musique/artiste/[
           </div>
           <div className="flex flex-wrap items-center gap-2 pt-1">
             <PlayCollectionButtons tracks={albums.flatMap((a) => a.tracks)} label="Écouter l’artiste" />
-            <FollowButton name={artist.name} />
+            <FollowButton name={artist.name} size="md" />
           </div>
         </div>
       </Card>

@@ -1,6 +1,7 @@
 import Form from "next/form";
 import Link from "next/link";
 import { Bell, Search, User } from "lucide-react";
+import { CURRENT_USER } from "@/lib/data/profiles";
 import { Logo } from "./Logo";
 
 export function Topbar() {
@@ -43,8 +44,8 @@ export function Topbar() {
           <Bell className="size-5" aria-hidden />
         </Link>
         <Link
-          href="/compte"
-          aria-label="Mon compte"
+          href={`/profil/${CURRENT_USER}`}
+          aria-label="Mon profil"
           className="flex size-11 items-center justify-center rounded-full bg-accent-soft text-accent-hover"
         >
           <User className="size-5" aria-hidden />
