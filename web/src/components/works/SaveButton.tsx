@@ -4,8 +4,13 @@ import { useState } from "react";
 import { Check, Plus } from "lucide-react";
 import { buttonClasses } from "@/components/ui/Button";
 
+type SaveButtonProps = {
+  label?: string;
+  savedLabel?: string;
+};
+
 /** Local toggle only; the library will be saved once accounts exist. */
-export function SaveButton() {
+export function SaveButton({ label = "Ajouter à ma bibliothèque", savedLabel = "Dans ma bibliothèque" }: SaveButtonProps) {
   const [saved, setSaved] = useState(false);
 
   return (
@@ -16,7 +21,7 @@ export function SaveButton() {
       className={buttonClasses("secondary")}
     >
       {saved ? <Check className="size-4 text-success" aria-hidden /> : <Plus className="size-4" aria-hidden />}
-      {saved ? "Dans ma bibliothèque" : "Ajouter à ma bibliothèque"}
+      {saved ? savedLabel : label}
     </button>
   );
 }

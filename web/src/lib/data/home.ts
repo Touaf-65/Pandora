@@ -59,7 +59,7 @@ const trilogies: Record<string, Trilogy> = {
     items: [
       { ...book("les-miserables", "Les Misérables", "Victor Hugo"), href: "/lire/les-miserables/3", duration: "18 min", detail: "Reprise au chapitre 3" },
       { ...album("pluie-douce", "Pluie douce", "Playlist piano solo"), duration: "24 min", detail: "Composée pour cette lecture" },
-      { ...artwork("paris-sous-la-pluie", "Paris sous la pluie", "Impressionnistes"), duration: "6 œuvres", detail: "Exposition courte" },
+      { ...artwork("paris-sous-la-pluie", "Paris sous la pluie", "Impressionnistes"), href: "/art/exposition/paris-sous-la-pluie", duration: "3 œuvres", detail: "Exposition courte" },
     ],
   },
   Curieux: {
@@ -102,7 +102,7 @@ const feed: HomeFeed = {
   resume: [
     { ...book("les-miserables", "Les Misérables", "Victor Hugo"), href: "/lire/les-miserables/3", detail: "Chapitre 3", progress: 42 },
     { ...album("nocturnes", "Nocturnes", "Playlist"), href: "/musique/playlist/nocturnes", detail: "12 titres", progress: 65 },
-    { ...artwork("lumieres-du-sahel", "Lumières du Sahel", "Exposition"), href: "/art/exposition/lumieres-du-sahel", detail: "Salle 4 sur 7", progress: 57 },
+    { ...artwork("lumieres-du-sahel", "Lumières du Sahel", "Exposition"), href: "/art/exposition/lumieres-du-sahel", detail: "Salle 2 sur 3", progress: 57 },
     { ...book("le-fleuve-et-la-nuit", "Le Fleuve et la nuit", "Awa Diallo"), href: "/lire/le-fleuve-et-la-nuit/4", detail: "Chapitre 4 sur 6", progress: 20 },
   ],
   rows: [
@@ -133,7 +133,7 @@ const feed: HomeFeed = {
       items: [
         artwork("impression-soleil-levant", "Impression, soleil levant", "Claude Monet"),
         artwork("indigo-4", "Indigo n° 4", "Mariam K."),
-        artwork("lumieres-du-sahel", "Lumières du Sahel", "Exposition"),
+        { ...artwork("lumieres-du-sahel", "Lumières du Sahel", "Exposition"), href: "/art/exposition/lumieres-du-sahel" },
         artwork("la-nuit-etoilee", "La Nuit étoilée", "Vincent van Gogh"),
         artwork("masques", "Masques", "Collection"),
         artwork("ville-bleue", "Ville bleue", "Yao B."),
