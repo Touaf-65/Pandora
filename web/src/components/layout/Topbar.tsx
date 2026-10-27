@@ -1,3 +1,4 @@
+import Form from "next/form";
 import Link from "next/link";
 import { Bell, Search, User } from "lucide-react";
 import { Logo } from "./Logo";
@@ -9,9 +10,10 @@ export function Topbar() {
         <Logo />
       </div>
 
-      <form action="/recherche" role="search" className="hidden max-w-xl flex-1 sm:block">
+      {/* next/form navigates client-side, so the audio player keeps playing. */}
+      <Form action="/recherche" role="search" className="hidden max-w-xl flex-1 sm:block">
         <label htmlFor="q" className="sr-only">
-          Rechercher une œuvre, un artiste, une humeur
+          Rechercher une œuvre, un créateur, un genre
         </label>
         <div className="flex h-11 items-center gap-2.5 rounded-xl border border-border bg-white/80 px-3.5 focus-within:border-accent">
           <Search className="size-4 text-muted" aria-hidden />
@@ -19,11 +21,11 @@ export function Topbar() {
             id="q"
             name="q"
             type="search"
-            placeholder="Œuvre, artiste, humeur…"
+            placeholder="Œuvre, créateur, genre…"
             className="min-w-0 flex-1 bg-transparent text-sm placeholder:text-muted focus-visible:outline-none"
           />
         </div>
-      </form>
+      </Form>
 
       <div className="ml-auto flex items-center gap-2">
         <Link

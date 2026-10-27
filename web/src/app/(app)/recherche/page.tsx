@@ -1,20 +1,18 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/ui/PagePlaceholder";
+import { SearchExperience } from "@/components/search/SearchExperience";
+import { PageSkeleton } from "@/components/ui/PageSkeleton";
+import { getSearchIndex } from "@/lib/data/search";
 
 export const metadata: Metadata = { title: "Recherche" };
 
-export default function Page() {
+export default async function SearchPage() {
+  const index = await getSearchIndex();
+
+  // The query comes from the URL, only known in the browser: the results stream in.
   return (
-    <PagePlaceholder
-      title="Recherche"
-      phase={1}
-      description="Une seule recherche pour toutes les œuvres, tous les créateurs et toutes les humeurs."
-      sections={[
-        "Barre de recherche et recherche par humeur",
-        "Onglets par type de contenu",
-        "Filtres : langue, durée, accès, émergents",
-        "Résultats par domaine et expérience croisée",
-      ]}
-    />
+    <Suspense fallback={<PageSkeleton />}>
+      <SearchExperience index={index} />
+    </Suspense>
   );
 }
