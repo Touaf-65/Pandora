@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Bookmark, ChevronLeft, ChevronRight, Lock, Pause, Play } from "lucide-react";
 import type { Chapter } from "@/lib/data/literature";
+import type { Track } from "@/lib/data/music";
+import { usePlayer } from "@/components/player/PlayerProvider";
 import { buttonClasses } from "@/components/ui/Button";
 import { Cover } from "@/components/works/Cover";
 
@@ -26,13 +28,22 @@ export type ReaderProps = {
   chapterCount: number;
   prevHref?: string;
   nextHref?: string;
+  /** Chapter soundtrack, played by the shared player so it continues after leaving the reader. */
+  soundtrack?: Track;
 };
 
-export function Reader({ workTitle, workHref, publicDomain, chapter, chapterCount, prevHref, nextHref }: ReaderProps) {
+export function Reader({ workTitle, workHref, publicDomain, chapter, chapterCount, prevHref, nextHref, soundtrack }: ReaderProps) {
   const [theme, setTheme] = useState<Theme>("jour");
   const [size, setSize] = useState(19);
-  const [playing, setPlaying] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
+  const player = usePlayer();
+  const soundtrackIsCurrent = !!soundtrack && player.current?.id === soundtrack.id;
+  const playing = soundtrackIsCurrent && player.playing;
+  const toggleSoundtrack = () => {
+    if (!soundtrack) return;
+    if (soundtrackIsCurrent) player.toggle();
+    else player.playTracks([soundtrack]);
+  };
 
   const locked = chapter.access === "premium";
   const control =
@@ -142,7 +153,7 @@ export function Reader({ workTitle, workHref, publicDomain, chapter, chapterCoun
           )}
         </article>
 
-        {chapter.soundtrack && !locked && (
+        {chapter.soundtrack && soundtrack && !locked && (
           <aside className="flex w-full flex-col gap-4 font-sans lg:sticky lg:top-24 lg:w-72 lg:self-start">
             <section className="flex flex-col gap-3 rounded-card border border-(--reader-line) p-4">
               <h2 className="text-sm font-semibold">Bande-son du chapitre</h2>
@@ -151,7 +162,7 @@ export function Reader({ workTitle, workHref, publicDomain, chapter, chapterCoun
                   type="button"
                   aria-label={playing ? "Mettre en pause la bande-son" : "Lire la bande-son"}
                   aria-pressed={playing}
-                  onClick={() => setPlaying(!playing)}
+                  onClick={toggleSoundtrack}
                   className="flex size-11 shrink-0 items-center justify-center rounded-full bg-accent text-accent-ink hover:bg-accent-hover"
                 >
                   {playing ? <Pause className="size-5" aria-hidden /> : <Play className="size-5" aria-hidden />}

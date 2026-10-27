@@ -73,6 +73,15 @@
   box-shadow: var(--shadow-glass), inset 0 0 0 1px rgb(15 23 42 / 0.04);
 }
 
+/* Denser glass for floating panels (menus, queue) that sit over busy content. */
+@utility glass-strong {
+  background-color: rgb(255 255 255 / 0.94);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgb(255 255 255 / 0.9);
+  box-shadow: 0 12px 40px rgb(15 23 42 / 0.14), inset 0 0 0 1px rgb(15 23 42 / 0.05);
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-ink);

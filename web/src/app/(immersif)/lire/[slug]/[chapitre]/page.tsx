@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Reader } from "@/components/reader/Reader";
 import { PageSkeleton } from "@/components/ui/PageSkeleton";
 import { getWork, getWorkSlugs, readerHref } from "@/lib/data/literature";
+import { chapterTrackId, getTrack } from "@/lib/data/music";
 
 const literata = Literata({ subsets: ["latin"], variable: "--font-literata" });
 
@@ -50,8 +51,10 @@ async function ChapterReader({ params }: { params: PageProps<"/lire/[slug]/[chap
   if (!found) notFound();
 
   const { work, index } = found;
+  const chapter = work.chapters[index];
   const prev = work.chapters[index - 1];
   const next = work.chapters[index + 1];
+  const soundtrack = await getTrack(chapterTrackId(work.slug, chapter.number));
 
   return (
     <div className={literata.variable}>
@@ -59,7 +62,8 @@ async function ChapterReader({ params }: { params: PageProps<"/lire/[slug]/[chap
         workTitle={work.title}
         workHref={`/litterature/${work.slug}`}
         publicDomain={work.license === "Domaine public"}
-        chapter={work.chapters[index]}
+        chapter={chapter}
+        soundtrack={soundtrack}
         chapterCount={work.chapters.length}
         prevHref={prev && readerHref(work.slug, prev.number)}
         nextHref={next && readerHref(work.slug, next.number)}
