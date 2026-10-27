@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/ui/PagePlaceholder";
+import Link from "next/link";
+import { AuthShell } from "@/components/auth/AuthShell";
+import { SignUpForm } from "@/components/auth/SignUpForm";
 
 export const metadata: Metadata = { title: "Inscription" };
 
-export default function Page() {
+export default function SignUpPage() {
   return (
-    <PagePlaceholder
-      title="Inscription"
-      phase={1}
-      description="Créez votre compte en une minute."
-      sections={[
-        "Formulaire d'inscription",
-        "Inscription Google, Apple",
-        "Conditions et confidentialité",
-      ]}
-    />
+    <AuthShell
+      title="Créer votre compte"
+      subtitle="Gratuit, en une minute. Vous choisirez ensuite vos goûts."
+      footer={
+        <>
+          Déjà inscrit ?{" "}
+          <Link href="/connexion" className="font-medium text-accent-hover hover:underline">
+            Se connecter
+          </Link>
+        </>
+      }
+    >
+      <SignUpForm />
+    </AuthShell>
   );
 }

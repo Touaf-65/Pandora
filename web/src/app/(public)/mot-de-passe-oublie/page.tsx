@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/ui/PagePlaceholder";
+import Link from "next/link";
+import { AuthShell } from "@/components/auth/AuthShell";
+import { ForgotPasswordForm } from "@/components/auth/ForgotPasswordForm";
 
 export const metadata: Metadata = { title: "Mot de passe oublié" };
 
-export default function Page() {
+export default function ForgotPasswordPage() {
   return (
-    <PagePlaceholder
+    <AuthShell
       title="Mot de passe oublié"
-      phase={1}
-      description="Recevez un lien pour choisir un nouveau mot de passe."
-      sections={[
-        "Saisie de l'e-mail",
-        "Confirmation d'envoi",
-      ]}
-    />
+      subtitle="Indiquez votre adresse e-mail : nous vous enverrons un lien pour en choisir un nouveau."
+      footer={
+        <Link href="/connexion" className="font-medium text-accent-hover hover:underline">
+          Retour à la connexion
+        </Link>
+      }
+    >
+      <ForgotPasswordForm />
+    </AuthShell>
   );
 }
