@@ -100,10 +100,10 @@ const feed: HomeFeed = {
   moods: Object.keys(trilogies),
   trilogies,
   resume: [
-    { ...book("les-miserables", "Les Misérables", "Victor Hugo"), href: "/lire/les-miserables/3", detail: "Chapitre 3 sur 48", progress: 42 },
+    { ...book("les-miserables", "Les Misérables", "Victor Hugo"), href: "/lire/les-miserables/3", detail: "Chapitre 3", progress: 42 },
     { ...album("nocturnes", "Nocturnes", "Playlist"), href: "/musique/playlist/nocturnes", detail: "12 titres", progress: 65 },
     { ...artwork("lumieres-du-sahel", "Lumières du Sahel", "Exposition"), href: "/art/exposition/lumieres-du-sahel", detail: "Salle 4 sur 7", progress: 57 },
-    { ...book("le-fleuve-et-la-nuit", "Le Fleuve et la nuit", "Awa Diallo"), href: "/lire/le-fleuve-et-la-nuit/9", detail: "Chapitre 9 sur 12", progress: 20 },
+    { ...book("le-fleuve-et-la-nuit", "Le Fleuve et la nuit", "Awa Diallo"), href: "/lire/le-fleuve-et-la-nuit/4", detail: "Chapitre 4 sur 6", progress: 20 },
   ],
   rows: [
     {

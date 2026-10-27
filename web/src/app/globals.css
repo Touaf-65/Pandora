@@ -30,6 +30,7 @@
 
   /* Status */
   --color-success: #15803d;
+  --color-success-soft: #e7f5ec;
   --color-warning: #b45309;
   --color-danger: #b91c1c;
 
@@ -38,6 +39,29 @@
   --shadow-glass: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px rgb(15 23 42 / 0.06);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Reader themes: the reading surface only, independent of the app theme. */
+.reader {
+  --reader-bg: #ffffff;
+  --reader-ink: #1f2937;
+  --reader-muted: #5b6475;
+  --reader-line: #e5e7eb;
+  --reader-mark: #e8efff;
+}
+.reader[data-theme="sepia"] {
+  --reader-bg: #f6efe1;
+  --reader-ink: #3b2f1e;
+  --reader-muted: #6b5a40;
+  --reader-line: #e3d6bb;
+  --reader-mark: #efdcaa;
+}
+.reader[data-theme="nuit"] {
+  --reader-bg: #111318;
+  --reader-ink: #e6e6e3;
+  --reader-muted: #a3a3a8;
+  --reader-line: #2a2d35;
+  --reader-mark: #2b3350;
 }
 
 /* Frosted panel: translucent white, blurred backdrop, light edge. */
