@@ -124,7 +124,7 @@ export function Reader({ workTitle, workHref, publicDomain, chapter, chapterCoun
               <Lock className="size-6 text-lit" aria-hidden />
               <p className="font-semibold">Ce chapitre est réservé aux abonnés Premium.</p>
               <p className="text-sm text-(--reader-muted)">
-                Premium Local dès 1,99 € par mois : sans publicité, chapitres exclusifs et lecture hors ligne.
+                Premium dès 1 300 F CFA (1,99 €) par mois, sans publicité. Lecture hors ligne et contenus exclusifs avec Premium Standard.
               </p>
               <Link href="/compte/abonnement" className={buttonClasses("primary")}>
                 Voir les formules
